@@ -23,3 +23,7 @@ Click [here](https://github.com/ZTjack/ReactReduxStartProject/archive/master.zip
 	> npm install
 	> npm start
 ```
+
+It contains React, Redux, Antd, Routes.
+
+It contains a test page which designing for processing action-reducer-components.
