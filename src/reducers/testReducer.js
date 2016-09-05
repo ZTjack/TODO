@@ -10,7 +10,7 @@ export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case TESTACTION:
 			return {...state,
-				test: action.payload.data.backtestId
+				test: action.payload
 			};
 		default:
 			return state;
