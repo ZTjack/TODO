@@ -1,6 +1,6 @@
 # ReactReduxStartProject
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+Interested in learning [Redux](http://redux.js.org/)?
 
 ###Getting Started###
 
