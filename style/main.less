@@ -1,7 +1,195 @@
-.test{
-    font-size:29px;
-    color:red;
-    img{
-        width:200px;
+@border-color: #d9d9d9;
+
+* {
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: transparent;
+  border: 0px;
+  outline: 0px;
+}
+
+.container {
+  width: 1040px;
+  margin: 0 auto;
+
+  .slogan {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .lists {
+    margin-top: 30px;
+    .todo {
+      width: 50%;
+      float: left;
+      min-height: 325px;
+      padding: 10px 5px 50px 5px;
+      position: relative;
+
+      .title {
+        width: 100%;
+        padding: 10px;
+
+        input {
+          height: 26px;
+          line-height: 26px;
+          padding-left: 5px;
+          width: 220px;
+          float: right;
+          outline: 0px;
+          margin-top: -3px;
+          margin-right: 10px;
+        }
+
+        button {
+          color: #819298;
+          float: right;
+          cursor: pointer;
+          font-size: 16px;
+        }
+      }
+
+      .list {
+        .item {
+          height: 40px;
+          line-height: 40px;
+          border-bottom: 1px dashed @border-color;
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 16px;
+          color: #555;
+
+          .fa {
+            font-size: 20px;
+            cursor: pointer;
+          }
+
+          span.fa {
+            margin-top: 3px;
+          }
+          button {
+            float: right;
+            margin-top: 5px;
+            color: gray;
+            cursor: pointer;
+          }
+
+          .time {
+            font-size: 14px;
+            float: right;
+            color: gray;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .btn-group {
+        border: 1px solid @border-color;
+        border-radius: 4px;
+        width: 122px;
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+
+        button {
+          height: 25px;
+          line-height: 25px;
+          width: 60px;
+          cursor: pointer;
+        }
+        button:first-child {
+          border-right: 1px solid @border-color;
+        }
+
+        button.active {
+          background-color: #e0eff5;
+        }
+      }
     }
+
+    .important-urgent {
+      border-right: 1px solid @border-color;
+      border-bottom: 1px solid @border-color;
+      border-top: 1px solid @border-color;
+
+      .title {
+        background-color: #FFEDE7;
+        color: #F76333;
+
+        input {
+          background-color: #FFEDE7;
+          border: 1px solid #F76333;
+        }
+      }
+
+      .list {
+        .fa {
+          color: #F76333;
+        }
+      }
+
+    }
+
+    .important-non-urgent {
+      border-bottom: 1px solid @border-color;
+      border-top: 1px solid @border-color;
+      .title {
+        background-color: #FFEFCB;
+        color: #FEAE6A;
+        input {
+          background-color: #FFEFCB;
+          border: 1px solid #FEAE6A;
+        }
+      }
+
+      .list {
+        .fa {
+          color: #FEAE6A;
+        }
+      }
+    }
+
+    .non-important-urgent {
+      border-right: 1px solid @border-color;
+      border-bottom: 1px solid @border-color;
+      .title {
+        background-color: #D6F4FE;
+        color: #3FB6DA;
+        input {
+          background-color: #D6F4FE;
+          border: 1px solid #3FB6DA;
+        }
+      }
+
+      .list {
+        .fa {
+          color: #3FB6DA;
+        }
+      }
+    }
+
+    .non-important-non-urgent {
+      border-bottom: 1px solid @border-color;
+      .title {
+        background-color: #EFD;
+        color: #89C557;
+
+        input {
+          background-color: #EFD;
+          border: 1px solid #89C557;
+        }
+      }
+
+      .list {
+        .fa {
+          color: #89C557;
+        }
+      }
+    }
+
+  }
+
 }
