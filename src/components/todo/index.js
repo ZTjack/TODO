@@ -6,9 +6,6 @@ export default class TODOIndex extends Component {
         super(props);
     }
 
-    componentWillMount() {
-    }
-
     render() {
         return (
             <div className="container">
@@ -22,9 +19,6 @@ export default class TODOIndex extends Component {
                     <Todo type="non-important-non-urgent" key="non-important-non-urgent" title="不重要-不紧急"/>
                 </div>
             </div>
-
-
-
         );
     }
 }
