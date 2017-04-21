@@ -7,8 +7,9 @@ export default class TODO extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: [],
-            displayType: false
+          todos: [],
+          displayType: false,
+          searchKey: ""
         };
     }
 
@@ -24,11 +25,11 @@ export default class TODO extends Component {
 
     updateTodos(data) {
         this.setState({
-            todos: data
+          todos: data,
+          searchKey: ""
         });
         localStorage.setItem(this.props.type, JSON.stringify(data));
     }
-
 
     changeStatus(desc) {
         let tempTodos = this.state.todos;
@@ -39,7 +40,6 @@ export default class TODO extends Component {
         });
         this.updateTodos(tempTodos);
     }
-
 
     removeTodo(desc) {
         let tempTodos = this.state.todos;
@@ -68,18 +68,41 @@ export default class TODO extends Component {
             //Init
             this.refs.input.blur();
             this.refs.input.value = "";
+
+
         }
     }
 
+  searchTodo() {
+    this.setState({
+      searchKey: this.refs.input.value
+    })
+  }
+
+  backToList() {
+    this.setState({
+      searchKey: ""
+    })
+  }
+
+  searchResult(value) {
+    if (this.state.searchKey == "") {
+      return true;
+    } else {
+      return value.includes(this.state.searchKey);
+    }
+  }
+
     render() {
         let displayItem = this.state.todos.map((item) => {
-            if (item.type == this.state.displayType) {
+          if (item.type == this.state.displayType && this.searchResult(item.desc)) {
                 return (
                     <div className="item" key={item.desc + item.time}>
                         <Icon name={item.type ? "check-circle-o" : "circle-o" }
                               onClick={this.changeStatus.bind(this, item.desc)}/> {item.desc}
-                        <button className="btn" onClick={this.removeTodo.bind(this, item.desc)}><Icon
-                            name="window-close-o"/></button>
+                      <button className="btn" onClick={this.removeTodo.bind(this, item.desc)}>
+                        <Icon name="window-close-o"/>
+                      </button>
                         <div className="time">{item.time}</div>
                     </div>
                 )
@@ -91,8 +114,11 @@ export default class TODO extends Component {
                 <div className="title">
                     {this.props.title}
                     <button className="btn add-btn" onClick={() => this.refs.input.focus()}><Icon name="plus"/></button>
-                    <input type="text" placeholder="输入任务，按Enter键完成" className={this.props.type} ref="input"
-                           onKeyDown={this.addItem.bind(this)}/>
+                  <input type="text" placeholder="输入任务，按Enter键添加" className={this.props.type} ref="input"
+                         onKeyDown={this.addItem.bind(this)}/>
+                  <Icon name="search" onClick={this.searchTodo.bind(this)}/>
+                  <Icon name="reply" onClick={this.backToList.bind(this)}
+                        className={this.state.searchKey == "" ? "hide":""}/>
                 </div>
                 <div className="list">
                     {displayItem}
