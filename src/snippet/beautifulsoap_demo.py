@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import urllib
 import urllib.request
 
+# http://beautifulsoup.readthedocs.io/zh_CN/latest/
+
 url = "http://www.qiushibaike.com/"
 print(url)
 user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
